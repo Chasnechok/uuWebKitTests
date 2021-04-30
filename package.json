@@ -1,24 +1,35 @@
 {
-  "name": "uuwebkit-tests",
-  "version": "1.0.0",
-  "description": "Automatized tests collection for the uuWebKit.",
-  "main": "smoke.js",
-  "scripts": {
-    "test": "jest --runInBand --bail"
-  },
-  "author": "",
-  "license": "ISC",
-  "jest": {
-    "preset": "jest-puppeteer"
-  },
-  "dependencies": {
-    "dotenv": "^8.2.0"
-  },
-  "devDependencies": {
-    "faker": "^5.5.3",
-    "jasmine-fail-fast": "^2.0.1",
-    "jest": "^26.6.3",
-    "jest-puppeteer": "^5.0.3",
-    "puppeteer": "^9.0.0"
-  }
+    "name": "uuwebkit-tests",
+    "version": "1.0.0",
+    "description": "Automated tests collection for the uuWebKit.",
+    "main": "smoke.js",
+    "scripts": {
+        "test": "jest --runInBand",
+        "test:report": "jest --runInBand --json --outputFile=report.json && prettier --write --ignore-unknown report.json",
+        "prettify": "prettier --write --ignore-unknown ."
+    },
+    "author": "",
+    "license": "ISC",
+    "jest": {
+        "preset": "jest-puppeteer"
+    },
+    "dependencies": {
+        "dotenv": "^8.2.0"
+    },
+    "devDependencies": {
+        "faker": "^5.5.3",
+        "i": "^0.3.6",
+        "jasmine-fail-fast": "^2.0.1",
+        "jest": "^26.6.3",
+        "jest-puppeteer": "^5.0.3",
+        "npm": "^7.11.2",
+        "prettier": "^2.2.1",
+        "puppeteer": "^9.0.0"
+    },
+    "prettier": {
+        "trailingComma": "all",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
+    }
 }
