@@ -4,12 +4,15 @@
     "description": "Automated tests collection for the uuWebKit.",
     "main": "smoke.js",
     "scripts": {
-        "test": "jest --runInBand",
-        "test:report": "jest --runInBand --json --outputFile=report.json && prettier --write --ignore-unknown report.json",
-        "prettify": "prettier --write --ignore-unknown ."
+        "test": "jest --noStackTrace --verbose -i --json --outputFile=report.json && prettier --write report.json",
+        "test:smoke": "jest --noStackTrace --verbose -i -t 'smoke'",
+        "test:performance": "jest --noStackTrace --verbose -i -t 'performance'",
+        "prettify": "prettier --write --ignore-unknown .",
+        "prettify:report": "prettier --write report.json"
     },
     "author": "",
     "license": "ISC",
+    "repository": "https://github.com/Chasnechok/uuWebKitTests.git",
     "jest": {
         "preset": "jest-puppeteer"
     },
