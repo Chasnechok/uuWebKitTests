@@ -15,30 +15,22 @@ const WebpageCreate = async () => {
     // await page.waitForNavigation({waitUntil: 'networkidle0'});
     // await expect(page.url()).toMatch(/\/writerGate.*$/);
     // set english
-    await expect(
-        page,
-    ).toClick(
+    await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-button-group > button:last-child',
         { timeout: 3000 },
     )
-    await expect(
-        page,
-    ).toClick(
+    await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-popover .uu-webkit-language-buttons-code-text',
         { text: 'en' },
     )
     await expect(page).toClick('body')
 
     // click on create page
-    await expect(
-        page,
-    ).toClick(
+    await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-button-group > button span',
         { text: 'Page' },
     )
-    await expect(
-        page,
-    ).toClick(
+    await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-popover .uu5-bricks-link > span',
         { text: 'Create' },
     )

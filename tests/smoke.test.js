@@ -36,7 +36,7 @@ describe('Smoke', () => {
             //    * Default behavior is to update previosly created page.
             //    * Uncomment this section to do so.
             //    */
-            //   await page.goto('https://uuapp.plus4u.net/uu-webkit-maing02/362ef7f4f2644e5797e6107034c0cfe3/writerGate/19615173', { waitUntil: 'networkidle0' });
+            //   await page.goto('LINK', { waitUntil: 'networkidle0' });
             // }, 30000)
 
             it(
@@ -79,7 +79,7 @@ describe('Smoke', () => {
             //      * Default behavior is to delete previosly created page.
             //      * Uncomment this section to do so.
             //      */
-            //     await page.goto('https://uuapp.plus4u.net/uu-webkit-maing02/362ef7f4f2644e5797e6107034c0cfe3/writerGate/39313238', { waitUntil: 'networkidle0' });
+            //     await page.goto('LINK', { waitUntil: 'networkidle0' });
             //   }, 30000)
             const pageToDelete = { code: undefined }
             it('Should move to trash', () => moveToTrash(pageToDelete), 30000)

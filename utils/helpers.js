@@ -1,7 +1,8 @@
 const camalize = function camalize(str) {
     return str
         .toLowerCase()
-        .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())
+        .replace(/^\s+(\S)/g, (m, chr) => chr)
+        .replace(/\s+(\S)/g, (m, chr) => chr.toUpperCase())
 }
 
 module.exports = {

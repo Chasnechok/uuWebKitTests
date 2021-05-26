@@ -1,7 +1,5 @@
 const moveToTrash = async (pageToDelete) => {
-    await expect(
-        page,
-    ).toClick(
+    await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-button-group > button > span > span',
         { text: 'Page', timeout: 3000 },
     )

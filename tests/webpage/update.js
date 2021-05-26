@@ -2,9 +2,7 @@ const faker = require('faker/locale/en')
 const { camalize } = require('../../utils/helpers.js')
 
 const handleUpdateInputs = async (useCase, inputName, isTextArea) => {
-    await expect(
-        page,
-    ).toClick(
+    await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-button-group > button span',
         { text: 'Page', timeout: 5000 },
     )
@@ -44,27 +42,27 @@ const handleUpdateInputs = async (useCase, inputName, isTextArea) => {
             await expect(page).toClick('.uu5-codekit-ace-editor', {
                 timeout: 5000,
             })
-            await page.keyboard.down('Control')
-            await page.keyboard.press('KeyA')
-            await page.keyboard.up('Control')
+            await page.evaluate(() =>
+                document.execCommand('selectall', false, null),
+            )
             await page.keyboard.press('Backspace')
             await expect(page).toFill('textarea', i == 1 ? cs : en)
             if (i == 0)
                 await expect(page).toClick('.uu5-bricks-dropdown-button')
         }
     } else {
-        await expect(
-            page,
-        ).toMatchElement(
+        await expect(page).toMatchElement(
             `.uu5-forms-input[name=${inputName}] input[name=${inputName}]`,
             { timeout: 5000 },
         )
         const inputs = await page.$$(`.uu5-forms-input[name=${inputName}]`)
         for (let i = 0; i < inputs.length; i++) {
+            await page.waitForTimeout(500)
             const input = inputs[i]
             await expect(input).toFill(
                 `input[name=${inputName}]`,
                 i == 0 ? cs : en,
+                { timeout: 5000 },
             )
         }
     }
@@ -94,9 +92,7 @@ const handleUpdateInputs = async (useCase, inputName, isTextArea) => {
 
 const handleUpdateState = async (state, cykles, reloadAfterUpdate) => {
     for (let i = 0; i < cykles; i++) {
-        await expect(
-            page,
-        ).toClick(
+        await expect(page).toClick(
             '.uu-webkit-floating-box > .uu5-bricks-button-group > button span',
             { text: 'Page' },
         )
@@ -137,9 +133,7 @@ const handleUpdateState = async (state, cykles, reloadAfterUpdate) => {
 }
 
 const handleUpdateMetas = async () => {
-    await expect(
-        page,
-    ).toClick(
+    await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-button-group > button span',
         { text: 'Page', timeout: 5000 },
     )
@@ -209,9 +203,7 @@ const handleUpdateMetas = async () => {
 
 const handleUpdateRoute = async () => {
     await page.waitForTimeout(1000)
-    await expect(
-        page,
-    ).toClick(
+    await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-button-group > button span',
         { text: 'Page', timeout: 5000 },
     )
