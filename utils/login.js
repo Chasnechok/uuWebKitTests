@@ -16,14 +16,14 @@ const Login = async () => {
         '.uu-identitymanagement-core-login-form-content form button[type=submit]',
     )
 
-    await loginPage.waitForNavigation({ waitUntil: 'networkidle0' })
-
-    await expect(loginPage).toMatchElement(
-        '.plus4u5-app-button-authenticated',
+    const loginResponse = await loginPage.waitForResponse(
+        (response) => response.url().match(/\/getPersonalRole.*$/i),
         {
-            timeout: 3000,
+            timeout: 5000,
         },
     )
+
+    await expect(loginResponse.ok()).toBeTruthy();
 
     await loginPage.close()
     // await Promise.all([

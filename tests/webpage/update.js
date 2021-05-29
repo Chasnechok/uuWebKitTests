@@ -202,12 +202,12 @@ const handleUpdateMetas = async () => {
 }
 
 const handleUpdateRoute = async () => {
-    await page.waitForTimeout(1000)
+    await page.waitForTimeout(1500)
     await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-button-group > button span',
         { text: 'Page', timeout: 5000 },
     )
-    await page.waitForTimeout(1000)
+    await page.waitForTimeout(1500)
     await expect(page).toClick(
         '.uu-webkit-floating-box > .uu5-bricks-popover button span',
         {
@@ -221,7 +221,7 @@ const handleUpdateRoute = async () => {
     await expect(page).toFill('input[name=route]', newRouteName, {
         timeout: 5000,
     })
-    await page.waitForTimeout(500)
+    await page.waitForTimeout(1500)
     await expect(page).toClick('.uu5-bricks-modal-footer button > span', {
         timeout: 5000,
         text: 'Save',
@@ -238,7 +238,7 @@ const handleUpdateRoute = async () => {
             '.uu5-bricks-modal-header > .uu5-bricks-modal-header-close',
         )
 
-    await page.waitForTimeout(1000)
+    await page.waitForTimeout(1500)
     await expect(page.url()).toMatch(newRouteName)
 }
 module.exports = {
